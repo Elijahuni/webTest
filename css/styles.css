@@ -90,7 +90,32 @@
     scroll-behavior: smooth;
   }
 }
+.portfolio-item .caption-content p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
 
+.badge {
+    font-size: 0.8rem;
+    padding: 0.5em 1em;
+}
+
+.portfolio-item:hover .caption {
+    background-color: rgba(29, 128, 159, 0.9);
+    transition: background-color 0.3s ease;
+}
+
+.portfolio-item {
+    overflow: hidden;
+}
+
+.portfolio-item img {
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.1);
+}
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);

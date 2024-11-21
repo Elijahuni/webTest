@@ -106,9 +106,18 @@
 }
 
 .portfolio-item {
+    position: relative;
+    margin-bottom: 30px;
+    border-radius: 10px;
     overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    aspect-ratio: 16/9;  /* 이미지 비율 고정 */
 }
-
+.portfolio-item .img-fluid {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* 이미지 비율 유지하면서 영역 채우기 */
+}
 .portfolio-item img {
     transition: transform 0.3s ease;
 }
@@ -11057,17 +11066,6 @@ footer.footer .social-link:hover {
     font-size: 5.5rem;
   }
 }
-
-.portfolio-item {
-  margin-bottom: 30px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  display: block;
-  position: relative;
-  overflow: hidden;
-  max-width: 530px;
-  margin: auto auto 1rem;
-}
 .caption {
     background: rgba(29, 128, 159, 0.95);
 }
@@ -11088,15 +11086,19 @@ footer.footer .social-link:hover {
     font-weight: 600;
 }
 .portfolio-item .caption {
-  display: flex;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(33, 37, 41, 0.2);
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(29, 128, 159, 0.95);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
+
 .portfolio-item .caption .caption-content {
   color: #fff;
   margin: auto 2rem 2rem;
@@ -11154,4 +11156,23 @@ footer.footer .social-link:hover {
   line-height: 7.5rem;
   font-size: 2.25rem;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+}
+@media (max-width: 768px) {
+    .portfolio-item {
+        aspect-ratio: 4/3;  /* 모바일에서는 더 작은 비율 */
+    }
+    
+    .portfolio-item .caption {
+        opacity: 1;  /* 모바일에서는 항상 보이게 */
+        background: rgba(29, 128, 159, 0.85);
+    }
+    
+    .caption-content {
+        font-size: 0.9rem;
+    }
+    
+    .badge {
+        font-size: 0.7rem;
+        padding: 4px 8px;
+    }
 }

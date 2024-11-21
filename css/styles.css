@@ -11091,18 +11091,23 @@ footer.footer .social-link:hover {
     font-weight: 600;
 }
 .portfolio-item .caption {
-    position: absolute;
+     position: absolute;
     top: 0;
-    right: 0;
-    bottom: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(29, 128, 159, 0.9); /* 배경색 조정 */
+    opacity: 0; /* 기본 상태는 숨김 */
+    transition: opacity 0.3s ease;
+    z-index: 1; /* z-index 추가 */
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(29, 128, 159, 0.95);
-    opacity: 0;
-    transition: opacity 0.3s ease;
 }
+.portfolio-item:hover .caption {
+    opacity: 1; /* 호버 시 보이게 */
+}
+
 
 .portfolio-item .caption .caption-content {
   color: #fff;
@@ -11145,13 +11150,13 @@ footer.footer .social-link:hover {
     -webkit-clip-path: inset(2rem);
             clip-path: inset(2rem);
   }
-  .portfolio-item .caption-content {
-    padding: 20px;
-    color: white;
-    max-width: 90%;
-    max-height: 90%;
-    overflow-y: auto;
+   .portfolio-item .caption-content {
+      color: #fff;
+      text-align: left;
+      padding: 20px;
+      max-width: 100%;
   }
+
 }
 
 .service-icon {
